@@ -1,7 +1,7 @@
 # BT4103-Gp2-F5-Cornerstone
 Code for Capstone Project 
 
-models: all codes for model implementation.
+‘models’: all codes for model implementation.
   clustering_embeddings: files for cluster embedding models
   clustering_gsdmm: files for GDSMM implementation and result visualization
   topic_modeling_etm: all Python files required to prepare data and train ETM models
