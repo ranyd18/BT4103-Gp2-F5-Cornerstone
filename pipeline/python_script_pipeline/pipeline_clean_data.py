@@ -62,8 +62,8 @@ def process_text_spacy(text, nlp, custom_stopwords):
     --------
         Returns processed text (string)
     '''
-    doc = nlp(text)
-    filtered = [token.lemma_ for token in doc if not token.is_stop and token.text.isalpha()] # remove stopwords and non-alpha tokens
+     doc = nlp(text)
+    filtered = [token.lemma_ for token in doc if (token.is_stop == False and token.is_alpha and token.is_ascii and  token.like_url == False and token.like_email == False)] # remove stopwords, non-alpha tokens
     tokens = [w.lower() for w in filtered] #lower case
     tokens = [w for w in tokens if w not in custom_stopwords] # remove custom stopwords
     processed_text = ' '.join(tokens) #detokenized
