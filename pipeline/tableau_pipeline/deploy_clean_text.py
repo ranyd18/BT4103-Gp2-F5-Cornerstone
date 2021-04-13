@@ -11,12 +11,15 @@ def clean_text(text_list):
     import numpy as np
     import spacy
 
+    # configure stopword path
+    stopword_path = "/home/nusintern/project/nus/scripts/stopwords.txt"
+
     # Import language model
     nlp = spacy.load('en_core_web_sm', disable=['tagger','parser', 'ner'])
 
     #Load custom stopwords
     custom_stopwords = []
-    with open("/home/nusintern/project/nus/scripts/stopwords.txt") as f:
+    with open(stopword_path) as f:
         custom_stopwords = f.read().splitlines()
     custom_stopwords = set(custom_stopwords)
     return [process_text(x, nlp, custom_stopwords) for x in text_list]
